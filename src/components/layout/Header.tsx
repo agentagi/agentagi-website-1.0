@@ -71,7 +71,7 @@ const Header = () => {
             {/* Menu Button */}
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="font-display text-pudgy-navy uppercase tracking-wider text-xl px-10 py-4 border-4 border-pudgy-navy rounded-xl hover:bg-pudgy-navy hover:text-white transition-all duration-300"
+              className="font-display text-pudgy-navy uppercase tracking-wider text-xl px-10 py-4 border-4 border-pudgy-navy rounded-xl bg-white hover:bg-pudgy-navy hover:text-white transition-all duration-300"
             >
               MENU
             </button>
@@ -90,7 +90,7 @@ const Header = () => {
             {/* BUY $AGI Button */}
             <a
               href={SOCIAL_LINKS.twitter}
-              className="font-display text-pudgy-navy uppercase tracking-wider text-xl px-10 py-4 border-4 border-pudgy-navy rounded-xl hover:bg-pudgy-navy hover:text-white transition-all duration-300"
+              className="font-display text-pudgy-navy uppercase tracking-wider text-xl px-10 py-4 border-4 border-pudgy-navy rounded-xl bg-white hover:bg-pudgy-navy hover:text-white transition-all duration-300"
             >
               BUY $AGI
             </a>
@@ -245,24 +245,6 @@ const Header = () => {
                   </a>
                 </motion.div>
               </div>
-
-              {/* Bottom Links */}
-              <motion.div
-                className="flex flex-wrap gap-6 mt-16"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7, duration: 0.4 }}
-              >
-                <a href="https://agentpad.xyz" target="_blank" rel="noopener noreferrer" className="text-sm font-display uppercase tracking-wider text-pudgy-navy/60 hover:text-cute-blue transition-colors">
-                  AGENTPAD
-                </a>
-                <a href="https://docs.agentpad.xyz" target="_blank" rel="noopener noreferrer" className="text-sm font-display uppercase tracking-wider text-pudgy-navy/60 hover:text-cute-blue transition-colors">
-                  DOCS
-                </a>
-                <a href="#about" onClick={() => setIsMenuOpen(false)} className="text-sm font-display uppercase tracking-wider text-pudgy-navy/60 hover:text-cute-blue transition-colors">
-                  ABOUT
-                </a>
-              </motion.div>
             </div>
           </motion.div>
         )}
