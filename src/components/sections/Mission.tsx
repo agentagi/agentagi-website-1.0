@@ -34,7 +34,9 @@ const Mission = () => {
               {/* Contract Address Box */}
               <div className="flex-1 w-full">
                 <div className="bg-cute-lightblue/30 border-2 border-pudgy-navy rounded-lg p-4">
-                  <p className="font-display text-pudgy-navy text-sm md:text-base break-all text-center md:text-left">
+                  <p
+                    className="font-display text-pudgy-navy break-all text-center md:text-left text-sm md:text-base"
+                  >
                     {contractAddress}
                   </p>
                 </div>

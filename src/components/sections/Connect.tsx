@@ -4,8 +4,6 @@ import SectionTitle from '../ui/SectionTitle';
 import telegramIcon from '../../assets/images/telegram-icon.webp';
 import xIcon from '../../assets/images/x-icon.webp';
 import dexscreenerIcon from '../../assets/images/dexscreener-icon.webp';
-import agiWinter from '../../assets/images/agi-winter.webp';
-import agiHoodie from '../../assets/images/agi-hoodie.webp';
 
 const Connect = () => {
   const platforms = [
@@ -31,21 +29,7 @@ const Connect = () => {
 
   return (
     <section className="section bg-white relative overflow-hidden" id="connect">
-      {/* Left Character - Pink Hoodie AGI */}
-      <img
-        src={agiHoodie}
-        alt="AGI Hoodie Character"
-        className="absolute left-10 bottom-0 w-[450px] pointer-events-none z-10 hidden 2xl:block"
-      />
-
-      {/* Right Character - Winter AGI */}
-      <img
-        src={agiWinter}
-        alt="AGI Winter Character"
-        className="absolute right-10 bottom-0 w-[450px] pointer-events-none z-10 hidden 2xl:block"
-      />
-
-      <div className="container-custom">
+      <div className="container-custom relative z-20">
         <SectionTitle>JOIN $AGI&apos;S COMMUNITY</SectionTitle>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">

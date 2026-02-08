@@ -71,26 +71,23 @@ const Header = () => {
             {/* Menu Button */}
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="font-display text-pudgy-navy uppercase tracking-wider text-sm sm:text-base md:text-xl px-4 sm:px-6 md:px-10 py-2 sm:py-3 md:py-4 border-2 sm:border-3 md:border-4 border-pudgy-navy rounded-xl bg-white hover:bg-pudgy-navy hover:text-white transition-all duration-300"
+              className="font-display text-pudgy-navy uppercase tracking-wider border-pudgy-navy rounded-xl bg-white hover:bg-pudgy-navy hover:text-white transition-all duration-300
+                         text-sm sm:text-base md:text-xl
+                         px-4 sm:px-6 md:px-10
+                         py-2 sm:py-3 md:py-4
+                         border-2 sm:border-3 md:border-4"
             >
               MENU
             </button>
 
-            {/* Logo Center */}
-            <motion.div
-              className="absolute left-1/2 -translate-x-1/2"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.2 }}
-            >
-              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display text-pudgy-navy uppercase tracking-tight">
-                $AGI
-              </span>
-            </motion.div>
-
             {/* BUY $AGI Button */}
             <a
               href={SOCIAL_LINKS.twitter}
-              className="font-display text-pudgy-navy uppercase tracking-wider text-sm sm:text-base md:text-xl px-4 sm:px-6 md:px-10 py-2 sm:py-3 md:py-4 border-2 sm:border-3 md:border-4 border-pudgy-navy rounded-xl bg-white hover:bg-pudgy-navy hover:text-white transition-all duration-300"
+              className="font-display text-pudgy-navy uppercase tracking-wider border-pudgy-navy rounded-xl bg-white hover:bg-pudgy-navy hover:text-white transition-all duration-300
+                         text-sm sm:text-base md:text-xl
+                         px-4 sm:px-6 md:px-10
+                         py-2 sm:py-3 md:py-4
+                         border-2 sm:border-3 md:border-4"
             >
               BUY $AGI
             </a>
@@ -176,7 +173,8 @@ const Header = () => {
                       <motion.button
                         key={item.label}
                         onClick={() => handleMenuClick(item.href)}
-                        className="text-4xl md:text-5xl lg:text-6xl font-display text-pudgy-navy uppercase tracking-tight hover:text-cute-blue transition-colors duration-300 text-left"
+                        className="font-display text-pudgy-navy uppercase tracking-tight hover:text-cute-blue transition-colors duration-300 text-left
+                                   text-4xl md:text-5xl lg:text-6xl"
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.2 + index * 0.1, duration: 0.4 }}
@@ -192,7 +190,8 @@ const Header = () => {
                       <motion.button
                         key={item.label}
                         onClick={() => handleMenuClick(item.href)}
-                        className="text-4xl md:text-5xl lg:text-6xl font-display text-pudgy-navy uppercase tracking-tight hover:text-cute-blue transition-colors duration-300 text-left"
+                        className="font-display text-pudgy-navy uppercase tracking-tight hover:text-cute-blue transition-colors duration-300 text-left
+                                   text-4xl md:text-5xl lg:text-6xl"
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.5 + index * 0.1, duration: 0.4 }}

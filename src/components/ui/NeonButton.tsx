@@ -19,7 +19,7 @@ const NeonButton = ({
   className = '',
   showArrow = false,
 }: NeonButtonProps) => {
-  const baseClasses = 'px-8 py-4 md:px-10 md:py-5 rounded-full font-display text-sm md:text-base uppercase tracking-wider transition-all duration-300 inline-flex items-center gap-2 border-3';
+  const baseClasses = 'px-8 py-4 md:px-10 md:py-5 text-sm md:text-base rounded-full font-display uppercase tracking-wider transition-all duration-300 inline-flex items-center gap-2 border-3';
 
   const variantClasses = {
     primary: 'bg-pudgy-navy text-white border-pudgy-navy hover:bg-[#2a2a6e] shadow-chunky hover:shadow-chunky-lg',

@@ -43,7 +43,10 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display text-pudgy-navy uppercase tracking-tight mb-6">
+            <h2
+              className="font-display text-pudgy-navy uppercase tracking-tight mb-6
+                         text-4xl md:text-5xl lg:text-6xl"
+            >
               {ABOUT_CONTENT.title}
             </h2>
 
@@ -51,7 +54,7 @@ const About = () => {
               {ABOUT_CONTENT.paragraphs.map((paragraph, index) => (
                 <motion.p
                   key={index}
-                  className="text-lg md:text-xl text-pudgy-navy/70 leading-relaxed"
+                  className="text-pudgy-navy/70 leading-relaxed text-lg md:text-xl"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}

@@ -21,10 +21,15 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
             {/* Logo */}
             <div className="lg:col-span-2 flex flex-col items-start gap-4">
-              <h3 className="text-3xl font-display text-pudgy-navy uppercase tracking-tight">
+              <h3
+                className="font-display text-pudgy-navy uppercase tracking-tight
+                           text-3xl md:text-4xl lg:text-5xl"
+              >
                 $AGI
               </h3>
-              <p className="text-pudgy-navy/80 font-medium text-sm">
+              <p
+                className="text-pudgy-navy/80 font-medium text-sm md:text-base"
+              >
                 AgentPad's AI Agent Mascot
               </p>
             </div>

@@ -63,7 +63,8 @@ const ParallaxCharacters = () => {
               <motion.img
                 src={character.src}
                 alt={character.alt}
-                className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 object-contain drop-shadow-2xl"
+                className="object-contain drop-shadow-2xl
+                           w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56"
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.3 }}
               />

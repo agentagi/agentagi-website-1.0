@@ -10,7 +10,8 @@ const Personality = () => {
         <SectionTitle>$AGI ECOSYSTEM FLOW</SectionTitle>
 
         <motion.p
-          className="text-center text-lg md:text-xl text-pudgy-navy/70 max-w-4xl mx-auto mb-12 md:mb-16"
+          className="text-center text-pudgy-navy/70 max-w-4xl mx-auto mb-12 md:mb-16
+                     text-lg md:text-xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -37,7 +38,10 @@ const Personality = () => {
                 </div>
 
                 {/* Step Header */}
-                <h3 className="text-2xl md:text-3xl font-display text-pudgy-navy uppercase tracking-tight mb-3">
+                <h3
+                  className="font-display text-pudgy-navy uppercase tracking-tight mb-3
+                             text-2xl md:text-3xl"
+                >
                   {flow.name}
                 </h3>
 
@@ -64,7 +68,10 @@ const Personality = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <div className="card-solid p-8 md:p-10 bg-white">
-            <h3 className="text-3xl md:text-4xl font-display text-pudgy-navy uppercase tracking-tight mb-6 text-center">
+            <h3
+              className="font-display text-pudgy-navy uppercase tracking-tight mb-6 text-center
+                         text-3xl md:text-4xl"
+            >
               RESULT
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -82,7 +89,9 @@ const Personality = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <p className="text-pudgy-navy/80 text-base md:text-lg leading-relaxed">
+                  <p
+                    className="text-pudgy-navy/80 leading-relaxed text-base md:text-lg"
+                  >
                     {result}
                   </p>
                 </motion.div>
