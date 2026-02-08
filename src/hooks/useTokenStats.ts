@@ -63,35 +63,50 @@ export function useTokenStats(tokenAddress: string = TOKEN_CONFIG.address): UseT
   };
 
   /**
-   * Fetch SOL balance from buyback/burn wallet using Ankr RPC
+   * Fetch total SOL spent on buybacks by analyzing transaction history
    */
   const fetchBuybackSol = async (): Promise<number> => {
     try {
-      const response = await fetch(SOLANA_RPC_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          jsonrpc: '2.0',
-          id: 1,
-          method: 'getBalance',
-          params: [TOKEN_CONFIG.buybackBurnWallet],
-        }),
-      });
+      // Use Helius enhanced API to get transaction history
+      const response = await fetch(
+        `https://api.helius.xyz/v0/addresses/${TOKEN_CONFIG.buybackBurnWallet}/transactions?api-key=${HELIUS_API_KEY}&limit=100`
+      );
 
-      const data = await response.json();
-
-      if (data.error) {
-        console.warn('Failed to fetch SOL balance:', data.error.message);
+      if (!response.ok) {
+        console.warn('Failed to fetch transaction history');
         return 0;
       }
 
-      // Convert lamports to SOL (1 SOL = 1,000,000,000 lamports)
-      const lamports = data.result?.value || 0;
-      const sol = lamports / 1_000_000_000;
+      const transactions = await response.json();
+      let totalSolSpent = 0;
 
-      return sol;
+      for (const tx of transactions) {
+        // Look for swap/buy transactions (type is usually SWAP or has token transfers)
+        const hasTokenTransfer = tx.tokenTransfers && tx.tokenTransfers.length > 0;
+        const hasNativeTransfer = tx.nativeTransfers && tx.nativeTransfers.length > 0;
+
+        // Check if this is a buyback transaction (buying $AGI tokens)
+        if (hasTokenTransfer) {
+          const agiTransfer = tx.tokenTransfers.find(
+            (transfer: any) => transfer.mint === tokenAddress &&
+            transfer.toUserAccount === TOKEN_CONFIG.buybackBurnWallet
+          );
+
+          if (agiTransfer && hasNativeTransfer) {
+            // Sum up SOL spent (native transfers from the buyback wallet)
+            const solSpent = tx.nativeTransfers
+              .filter((transfer: any) => transfer.fromUserAccount === TOKEN_CONFIG.buybackBurnWallet)
+              .reduce((sum: number, transfer: any) => sum + (transfer.amount || 0), 0);
+
+            // Convert lamports to SOL and add to total
+            totalSolSpent += solSpent / 1_000_000_000;
+          }
+        }
+      }
+
+      return totalSolSpent;
     } catch (err) {
-      console.warn('Error fetching SOL balance:', err);
+      console.warn('Error fetching buyback history:', err);
       return 0;
     }
   };
