@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@font-face {
+  font-family: 'Anja Eliane';
+  src: url('./assets/fonts/AnjaEliane.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+  }
+
+  body {
+    @apply bg-white antialiased;
+    font-family: Inter, system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    color: #1a1a4e;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Anja Eliane', system-ui, sans-serif;
+  }
+
+  /* Smooth transitions for all interactive elements */
+  * {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer components {
+  /* Solid Card Styles */
+  .card-solid {
+    background: #FFFFFF;
+    border: 3px solid #1a1a4e;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 0 rgba(26, 26, 78, 0.12);
+    transition: all 0.3s ease;
+  }
+
+  .card-solid:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 0 rgba(26, 26, 78, 0.12);
+  }
+
+  /* Uppercase Bold Heading Style */
+  .heading-bold {
+    font-family: 'Anja Eliane', system-ui, sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: #1a1a4e;
+  }
+
+  /* Gradient Text */
+  .text-gradient-blue {
+    background: linear-gradient(135deg, #40C4FF 0%, #0091EA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Container */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Section Spacing */
+  .section {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+
+  /* Marquee */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+  }
+}
+
+@layer utilities {
+  /* Custom Scrollbar */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: rgba(26, 26, 78, 0.1);
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(64, 196, 255, 0.5);
+    border-radius: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(64, 196, 255, 0.8);
+  }
+
+  /* Reduce Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
