@@ -19,6 +19,9 @@ export const TOKEN_CONFIG = {
   // Buyback & Burn wallet - holds both SOL (for buybacks) and burnt $AGI tokens
   buybackBurnWallet: 'FCLBrwZY1fahuRcu6cFhKmvSYAfA1fBhweCn4nggkG59',
 
+  // Original total supply when token was created (1 billion)
+  originalSupply: 1_000_000_000,
+
   // Previous test addresses:
   // JUP: 'JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN'
   // $AGI address (use when launched):

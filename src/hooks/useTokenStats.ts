@@ -97,54 +97,17 @@ export function useTokenStats(tokenAddress: string = TOKEN_CONFIG.address): UseT
   };
 
   /**
-   * Fetch total burned amount by comparing max supply with current supply
-   * Burns reduce the total supply, so: Burned = Max Supply - Current Supply
+   * Calculate total burned amount by comparing original supply with current supply
+   * Burns reduce the total supply, so: Burned = Original Supply - Current Supply
    */
-  const fetchBurnedAmount = async (currentSupply: number): Promise<number> => {
-    try {
-      // Get the mint account info to find the original max supply
-      const response = await fetch(SOLANA_RPC_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          jsonrpc: '2.0',
-          id: 1,
-          method: 'getAccountInfo',
-          params: [
-            tokenAddress,
-            { encoding: 'jsonParsed' },
-          ],
-        }),
-      });
+  const calculateBurnedAmount = (currentSupply: number): number => {
+    // Use the original supply from config (1 billion tokens)
+    const originalSupply = TOKEN_CONFIG.originalSupply;
 
-      const data = await response.json();
+    // Calculate burned: Original supply minus current circulating supply
+    const burned = Math.max(0, originalSupply - currentSupply);
 
-      if (data.error) {
-        console.warn('Failed to fetch mint info:', data.error.message);
-        return 0;
-      }
-
-      // Get the supply from mint account
-      const mintInfo = data.result?.value?.data?.parsed?.info;
-      const supply = mintInfo?.supply;
-
-      if (!supply) {
-        console.warn('Could not find supply in mint info');
-        return 0;
-      }
-
-      // Convert from raw amount to UI amount using decimals
-      const decimals = mintInfo?.decimals || 6;
-      const totalSupply = parseInt(supply) / Math.pow(10, decimals);
-
-      // Calculate burned: If current supply is less than total ever minted
-      const burned = Math.max(0, totalSupply - currentSupply);
-
-      return burned;
-    } catch (err) {
-      console.warn('Error fetching burned amount:', err);
-      return 0;
-    }
+    return burned;
   };
 
   /**
@@ -184,15 +147,15 @@ export function useTokenStats(tokenAddress: string = TOKEN_CONFIG.address): UseT
       setLoading(true);
       setError(null);
 
-      // First fetch price data, buyback SOL, and total supply
+      // Fetch price data, buyback SOL, and total supply
       const [priceData, buybackSol, totalSupply] = await Promise.all([
         fetchPriceData(),
         fetchBuybackSol(),
         fetchTotalSupply(),
       ]);
 
-      // Then fetch burned amount (needs current supply for calculation)
-      const burnedAmount = await fetchBurnedAmount(totalSupply);
+      // Calculate burned amount from original supply vs current supply
+      const burnedAmount = calculateBurnedAmount(totalSupply);
 
       setStats({
         price: priceData.price,
