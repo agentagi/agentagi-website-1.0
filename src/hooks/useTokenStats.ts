@@ -7,6 +7,7 @@ export interface TokenStats {
   marketCap: number;
   burnedAmount: number;
   buybackSol: number;
+  totalSupply: number;
 }
 
 interface UseTokenStatsReturn {
@@ -28,6 +29,36 @@ export function useTokenStats(tokenAddress: string = TOKEN_CONFIG.address): UseT
   const [stats, setStats] = useState<TokenStats | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+
+  /**
+   * Fetch total token supply using Ankr RPC
+   */
+  const fetchTotalSupply = async (): Promise<number> => {
+    try {
+      const response = await fetch(ANKR_RPC_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          jsonrpc: '2.0',
+          id: 1,
+          method: 'getTokenSupply',
+          params: [tokenAddress],
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.error) {
+        console.warn('Failed to fetch token supply:', data.error.message);
+        return 0;
+      }
+
+      return data.result?.value?.uiAmount || 0;
+    } catch (err) {
+      console.warn('Error fetching token supply:', err);
+      return 0;
+    }
+  };
 
   /**
    * Fetch SOL balance from buyback/burn wallet using Ankr RPC
@@ -145,10 +176,11 @@ export function useTokenStats(tokenAddress: string = TOKEN_CONFIG.address): UseT
       setError(null);
 
       // Fetch all data in parallel
-      const [priceData, burnedAmount, buybackSol] = await Promise.all([
+      const [priceData, burnedAmount, buybackSol, totalSupply] = await Promise.all([
         fetchPriceData(),
         fetchBurnedAmount(),
         fetchBuybackSol(),
+        fetchTotalSupply(),
       ]);
 
       setStats({
@@ -157,6 +189,7 @@ export function useTokenStats(tokenAddress: string = TOKEN_CONFIG.address): UseT
         marketCap: priceData.marketCap,
         burnedAmount,
         buybackSol,
+        totalSupply,
       });
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Failed to fetch token stats';
