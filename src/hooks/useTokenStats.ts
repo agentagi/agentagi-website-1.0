@@ -17,7 +17,9 @@ interface UseTokenStatsReturn {
   refetch: () => Promise<void>;
 }
 
-const ANKR_RPC_ENDPOINT = 'https://rpc.ankr.com/solana';
+// Helius RPC endpoint with API key from environment
+const HELIUS_API_KEY = import.meta.env.VITE_HELIUS_API_KEY;
+const SOLANA_RPC_ENDPOINT = `https://mainnet.helius-rpc.com/?api-key=${HELIUS_API_KEY}`;
 const UPDATE_INTERVAL = 5 * 60 * 1000; // 5 minutes in milliseconds
 
 /**
@@ -35,7 +37,7 @@ export function useTokenStats(tokenAddress: string = TOKEN_CONFIG.address): UseT
    */
   const fetchTotalSupply = async (): Promise<number> => {
     try {
-      const response = await fetch(ANKR_RPC_ENDPOINT, {
+      const response = await fetch(SOLANA_RPC_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -65,7 +67,7 @@ export function useTokenStats(tokenAddress: string = TOKEN_CONFIG.address): UseT
    */
   const fetchBuybackSol = async (): Promise<number> => {
     try {
-      const response = await fetch(ANKR_RPC_ENDPOINT, {
+      const response = await fetch(SOLANA_RPC_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -100,7 +102,7 @@ export function useTokenStats(tokenAddress: string = TOKEN_CONFIG.address): UseT
   const fetchBurnedAmount = async (): Promise<number> => {
     try {
       // Get token accounts for the buyback/burn wallet
-      const response = await fetch(ANKR_RPC_ENDPOINT, {
+      const response = await fetch(SOLANA_RPC_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

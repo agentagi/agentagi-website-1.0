@@ -57,7 +57,7 @@ const TokenStats = () => {
     {
       icon: <SupplyIcon />,
       label: 'TOTAL SUPPLY',
-      value: stats ? formatCompact(stats.totalSupply) : '--',
+      value: stats ? formatNumber(stats.totalSupply) : '--',
       suffix: '$AGI',
       suffixColor: undefined,
     },
