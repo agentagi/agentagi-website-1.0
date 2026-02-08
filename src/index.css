@@ -19,7 +19,7 @@
   }
 
   body {
-    @apply bg-white antialiased;
+    @apply bg-white antialiased overflow-x-hidden;
     font-family: Inter, system-ui, sans-serif;
     margin: 0;
     padding: 0;

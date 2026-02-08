@@ -21,7 +21,7 @@ const Hero = () => {
       <motion.img
         src={agiWaveLeft}
         alt="AGI Waving Left"
-        className="absolute left-0 lg:left-4 top-[40%] -translate-y-1/2 w-80 h-80 md:w-96 md:h-96 lg:w-[600px] lg:h-[600px] object-contain pointer-events-none hidden md:block"
+        className="absolute left-0 lg:left-4 top-[40%] -translate-y-1/2 w-80 h-80 md:w-96 md:h-96 lg:w-[600px] lg:h-[600px] object-contain pointer-events-none hidden 2xl:block"
         initial={{ opacity: 0, x: -100 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, ease: 'easeOut' }}
@@ -31,7 +31,7 @@ const Hero = () => {
       <motion.img
         src={agiWaveRight}
         alt="AGI Waving Right"
-        className="absolute right-0 lg:right-4 top-[40%] -translate-y-1/2 w-80 h-80 md:w-96 md:h-96 lg:w-[600px] lg:h-[600px] object-contain pointer-events-none hidden md:block"
+        className="absolute right-0 lg:right-4 top-[40%] -translate-y-1/2 w-80 h-80 md:w-96 md:h-96 lg:w-[600px] lg:h-[600px] object-contain pointer-events-none hidden 2xl:block"
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, ease: 'easeOut' }}
@@ -48,17 +48,18 @@ const Hero = () => {
             transition={{ delay: 0.3, duration: 0.8 }}
           >
             <h1
-              className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-display text-cute-blue uppercase tracking-tight leading-none"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-display text-cute-blue uppercase tracking-tight leading-tight text-center px-4"
               style={{
                 WebkitTextStroke: '2px #2a2a6e',
                 textShadow: '4px 4px 0px #2a2a6e, 8px 8px 0px rgba(42, 42, 110, 0.3)'
               }}
             >
-              {HERO_CONTENT.headline}
+              <div>AGENTPAD</div>
+              <div>$AGI</div>
             </h1>
 
             <motion.p
-              className="text-lg md:text-xl text-pudgy-navy max-w-2xl mx-auto font-display uppercase tracking-wider"
+              className="text-pudgy-navy max-w-2xl mx-auto font-display uppercase tracking-wider px-4 text-lg sm:text-xl md:text-2xl"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.8 }}
@@ -67,7 +68,7 @@ const Hero = () => {
             </motion.p>
 
             <motion.p
-              className="text-base md:text-lg text-pudgy-navy max-w-xl mx-auto font-bold"
+              className="text-sm sm:text-base md:text-lg text-pudgy-navy max-w-xl mx-auto font-bold px-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.9, duration: 0.8 }}
@@ -78,7 +79,7 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 pt-4"
+            className="flex flex-col sm:flex-row gap-4 pt-4 px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.8 }}

@@ -20,10 +20,10 @@ const WhyFollow = () => {
       {/* Jupiter Swap Section */}
       <div className="section bg-cute-paleblue/30">
         <div className="container-custom">
-          <SectionTitle>SWAP WITH AGI</SectionTitle>
+          <SectionTitle>SWAP WITH $AGI</SectionTitle>
 
           <motion.p
-            className="text-center text-base md:text-lg text-pudgy-navy/70 max-w-3xl mx-auto mb-8 md:mb-12"
+            className="text-center text-sm sm:text-base md:text-lg text-pudgy-navy/70 max-w-3xl mx-auto mb-8 md:mb-12 px-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -34,7 +34,7 @@ const WhyFollow = () => {
 
           {/* Jupiter Swap Widget */}
           <motion.div
-            className="max-w-lg mx-auto"
+            className="max-w-lg mx-auto px-4"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -46,6 +46,7 @@ const WhyFollow = () => {
                 src="https://jup.ag/swap/SOL-USDC?embed=true"
                 width="100%"
                 height="600"
+                className="min-h-[500px] sm:min-h-[600px]"
                 style={{
                   border: 'none',
                   margin: 0,

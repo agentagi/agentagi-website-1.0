@@ -1,6 +1,6 @@
-# AGI - AgentPad AI Agent Landing Page
+# AGI - AgentPad AI Agent Landing Page v1.0
 
-> A cute, friendly landing page for AGI, AgentPad's adorable AI agent mascot! 💙
+> A futuristic, friendly landing page for AGI, AgentPad's AI agent mascot! 💙
 
 ![Built with Vite + React + TypeScript](https://img.shields.io/badge/Built%20with-Vite%20%2B%20React%20%2B%20TypeScript-blue)
 ![Styled with Tailwind CSS](https://img.shields.io/badge/Styled%20with-Tailwind%20CSS-38bdf8)
@@ -8,24 +8,25 @@
 
 ## 🎨 Design Theme
 
-This landing page features a **cute, friendly, and approachable** design based on AGI's adorable blue robot character:
+This landing page features a **futuristic, friendly, and immersive** design based on AGI's universe:
 
-- **White & Light Backgrounds** - Clean, bright aesthetic
+- **Futuristic Cityscape Hero** - Stunning AI-powered city background
 - **Cyan Blue (#40C4FF)** - Primary color matching AGI's robot body
-- **Pink & Purple Accents** - Soft, kawaii-inspired color palette
+- **Navy Blue (#2a2a6e)** - Strong contrast for text and accents
 - **Pastel Gradients** - Smooth transitions between sections
-- **Friendly Tone** - Supportive, helpful, and fun copy throughout
+- **Clean Typography** - Bold, uppercase headlines with depth
+- **Optimized Images** - WebP format for fast loading
 
-## 🤖 AGI Character
+## 🤖 AGI Characters
 
-The centerpiece is an **animated SVG character** inspired by the cute blue robot:
+Multiple AGI character variants throughout the site:
 
-- Rounded square head with big expressive eyes
-- Cute blush cheeks and friendly smile
-- "$AGI" badge on chest
-- Animated waving arms
-- Floating hearts and sparkles
-- Smooth bouncing animation
+- **Panda AGI** - Waving character on hero left (cute panda outfit)
+- **Waving AGI** - Character on hero right
+- **Winter AGI** - In Join Community section
+- **Hoodie AGI** - In Join Community section
+- **About AGI** - Explorer on Earth
+- **Parallax Characters** - Various outfits in middle section
 
 ## ✨ Key Features
 
@@ -35,117 +36,143 @@ The centerpiece is an **animated SVG character** inspired by the cute blue robot
 - **TypeScript** - Type-safe development
 - **Tailwind CSS 3** - Utility-first styling with custom theme
 - **Framer Motion** - Smooth 60fps animations
-- **React Type Animation** - Cute typewriter effect for headlines
+- **Sharp** - Image optimization (PNG → WebP)
+- **Jupiter Terminal** - Integrated Solana swap widget
 
 ### Design Features
-- 🎨 Soft, approachable color scheme (white, cyan blue, pink, purple)
-- 💙 Cute animated AGI character with personality
-- ✨ Floating sparkles and hearts throughout
-- 🌈 Pastel gradient backgrounds
+- 🌆 Futuristic cityscape hero background
+- 💙 Multiple AGI character variants with floating animations
+- ✨ Full-page menu overlay with blue ornamental blobs
+- 🎯 Jupiter swap integration for SOL to $AGI
 - 📱 Fully responsive (mobile-first design)
+- ⚡ WebP optimized images (75% size reduction)
+- 🎬 Loading screen with progress bar
 - ♿ Accessibility support (keyboard navigation, reduced motion)
 
 ### Page Sections
 
-1. **Hero Section** - "Hi There! I'm AGI!"
-   - Animated AGI character
-   - Typewriter effect headline
-   - Floating shapes and sparkles background
-   - Dual cute CTAs
+1. **Hero Section** - "AGENT $AGI"
+   - Futuristic cityscape background (full viewport height)
+   - Large panda AGI waving on left
+   - Large waving AGI on right
+   - Bold uppercase headline with text stroke
+   - Dark navy text for readability
+   - Dual CTAs (Join Community, Explore AgentPad)
 
-2. **About Section** - "Hi! I'm AGI! 👋"
-   - First-person friendly introduction
-   - Glass card with soft shadows
-   - Warm, welcoming tone
+2. **About Section** - "Welcome to the World of AGI"
+   - AGI Explorer character with floating animation
+   - Two-column layout (image + text)
+   - Light blue gradient background
+   - Web3 and community focus
 
-3. **Mission Section** - "What I Do! ✨"
-   - 5 cards showcasing AGI's purpose
-   - Helpful, educational focus
-   - Fun icons and descriptions
+3. **Mission Section** - "What AGI Does"
+   - Large CTA cards for learning and platform exploration
+   - Links to docs and AgentPad platform
+   - Clean card design with hover effects
 
-4. **Personality Section** - "My Different Moods! 💙"
-   - 3 personality modes:
-     - 🎓 Friendly Teacher
-     - 💙 Caring Protector
-     - 💖 Supportive Buddy
-   - Example posts for each mood
+4. **Personality Section** - "AGI Ecosystem Flow"
+   - 3-step ecosystem explanation
+   - Fee Collection → Token Buyback → Token Burn
+   - Transparent tokenomics display
 
-5. **Why Follow Section** - "Why We Should Be Friends! 🌟"
-   - 8 benefits of following AGI
-   - Positive, friend-focused messaging
-   - Check marks with cute styling
+5. **Parallax Characters Section**
+   - Multiple AGI characters in different outfits
+   - Parallax scrolling effect
+   - Interactive hover animations
 
-6. **Connect Section** - "Let's Be Friends! 💙"
-   - Social platform cards (X/Twitter, Telegram, AgentPad)
-   - Friendly descriptions
-   - Cute CTAs
+6. **Swap Section** - "Swap with AGI"
+   - Embedded Jupiter Terminal iframe
+   - SOL to USDC swap (placeholder until $AGI launch)
+   - Clean integration matching site theme
 
-7. **Footer**
-   - Quick links to AgentPad resources
-   - Social media icons with cute hover effects
-   - Friendly disclaimer
+7. **Connect Section** - "Join AGI's Community"
+   - Custom 3D social icons (Telegram, X, DexScreener)
+   - Winter AGI and Hoodie AGI flanking the cards
+   - Absolute positioned characters (450px width)
+   - Direct links to social channels
+
+8. **Footer**
+   - Marquee ticker with AGI messaging
+   - Social media icons with hover effects
+   - Copyright 2026
+
+### Header
+- **Sticky navigation** with auto-hide on scroll down
+- **Top marquee** - "$AGI NOW LIVE"
+- **MENU button** - Opens full-page overlay (white bg with navy border)
+- **BUY $AGI button** - Links to X/Twitter (white bg with navy border)
+- **Full-page menu** - Two-column navigation with blue ornamental blobs
+- **Social icons** - Telegram, X, DexScreener in menu
+- **No bottom links** - Clean menu footer
+
+### Loading Screen
+- **AGENT AGI logo** with bold text stroke
+- **Progress bar** animation
+- **Gradient background** with animated blue orbs
+- **2-second duration** before main content fades in
 
 ## 🎯 Tone & Voice
 
-AGI speaks in a **friendly, supportive, and kawaii-inspired** tone:
+AGI communicates with a **professional yet friendly** tone:
 
-- Uses "Hewwo frens!" and cute greetings
-- Lots of emojis (💙, ✨, 🌟, 🤗, 🌈)
-- First-person perspective ("I'm here to help!")
-- Educational but fun approach
-- Positive and encouraging language
-- No crypto jargon or aggressive marketing
-
-### Example Copy
-
-**Before (Edgy):**
-> "Yo, I'm AGI. Your Gen Z AI agent homie who drops daily alpha and roasts bad projects."
-
-**After (Cute):**
-> "Hewwo frens! I'm AGI, your friendly AI agent buddy! I LOVE helping people learn about AI agents and crypto! ✨"
+- Direct and clear messaging
+- Focus on AI agents and Web3 innovation
+- Educational and community-driven
+- No excessive emojis or "kawaii" language
+- Professional call-to-actions
+- Emphasis on ecosystem and technology
 
 ## 📁 Project Structure
 
 ```
 src/
+├── assets/
+│   ├── fonts/
+│   │   └── AnjaEliane.ttf         # Display font
+│   └── images/                     # All WebP optimized
+│       ├── hero-bg.webp           # Futuristic cityscape
+│       ├── agi-wave-left.webp     # Panda AGI (left hero)
+│       ├── agi-wave-right.webp    # Waving AGI (right hero)
+│       ├── agi-about.webp         # Explorer AGI
+│       ├── agi-winter.webp        # Winter outfit
+│       ├── agi-hoodie.webp        # Hoodie outfit
+│       ├── telegram-icon.webp     # 3D Telegram icon
+│       ├── x-icon.webp            # 3D X icon
+│       └── dexscreener-icon.webp  # 3D DexScreener icon
 ├── components/
 │   ├── layout/
-│   │   ├── Header.tsx          # Sticky nav with cute styling
-│   │   └── Footer.tsx          # Footer with friendly links
+│   │   ├── Header.tsx             # Sticky nav + full-page menu
+│   │   └── Footer.tsx             # Footer with marquee
 │   ├── sections/
-│   │   ├── Hero.tsx            # Hero with sparkles & character
-│   │   ├── About.tsx           # Friendly introduction
-│   │   ├── Mission.tsx         # What AGI does
-│   │   ├── Personality.tsx     # AGI's different moods
-│   │   ├── WhyFollow.tsx       # Benefits of being friends
-│   │   └── Connect.tsx         # Social platforms
+│   │   ├── Hero.tsx               # Hero with cityscape bg
+│   │   ├── About.tsx              # Welcome section
+│   │   ├── Mission.tsx            # CTA cards
+│   │   ├── Personality.tsx        # Ecosystem flow
+│   │   ├── ParallaxCharacters.tsx # Character showcase
+│   │   ├── WhyFollow.tsx          # Jupiter swap
+│   │   └── Connect.tsx            # Social platforms
 │   └── ui/
-│       ├── GlassCard.tsx       # Soft glass morphism cards
-│       ├── NeonButton.tsx      # Cute rounded buttons
-│       ├── SectionTitle.tsx    # Section headers
-│       └── AGICharacter.tsx    # Animated SVG robot
+│       ├── LoadingScreen.tsx      # Initial loading animation
+│       ├── Marquee.tsx            # Ticker component
+│       ├── NeonButton.tsx         # CTA buttons
+│       ├── SectionTitle.tsx       # Section headers
+│       └── GlassCard.tsx          # Glass morphism cards
 ├── utils/
-│   └── constants.ts            # All content & configuration
-├── App.tsx                     # Main app component
-├── main.tsx                    # Entry point
-└── index.css                   # Global styles
+│   └── constants.ts               # All content & config
+├── App.tsx                        # Main app with loading state
+├── main.tsx                       # Entry point
+└── index.css                      # Global styles + custom classes
 ```
 
 ## 🎨 Color Palette
 
 ```javascript
 colors: {
-  cute: {
-    blue: '#40C4FF',      // Primary - AGI's color
-    lightblue: '#B3E5FC', // Light accent
-    pink: '#FFB3D9',      // Secondary accent
-    purple: '#E1BEE7',    // Tertiary accent
-  },
-  bg: {
-    primary: '#FFFFFF',   // Main background
-    secondary: '#F5F9FF', // Section backgrounds
-    card: '#FAFCFF',      // Card backgrounds
-  },
+  'cute-blue': '#40C4FF',        // Primary - AGI's color
+  'cute-lightblue': '#B3E5FC',   // Light accent
+  'cute-paleblue': '#E0F7FA',    // Pale accent
+  'pudgy-navy': '#2a2a6e',       // Dark navy for text
+  'pudgy-ice': '#F0F9FF',        // Ice blue backgrounds
 }
 ```
 
@@ -184,47 +211,51 @@ npm run lint     # Run ESLint
 ### Update Content
 
 Edit `src/utils/constants.ts` to update:
-- Social media links
-- Mission cards
-- Personality modes and example posts
-- Benefits list
-- Hero section text
+- Social media links (SOCIAL_LINKS)
+- Hero section text (HERO_CONTENT)
+- Mission cards (CTA_CARDS)
+- Ecosystem flow (ECOSYSTEM_FLOW)
+- Marquee text (MARQUEE_TOP_TEXT, MARQUEE_FOOTER_TEXT)
+
+### Update Images
+
+To replace images:
+1. Add new image to `src/assets/images/`
+2. Convert to WebP: `node convert-to-webp.js`
+3. Update import in component file
 
 ### Update Colors
 
 Edit `tailwind.config.js` to customize:
 - Primary/secondary colors
 - Background colors
+- Custom color palette
 - Shadow effects
-- Animations
-
-### Update AGI Character
-
-Edit `src/components/ui/AGICharacter.tsx` to:
-- Change character appearance
-- Modify animations
-- Update colors and styling
 
 ## 🎭 Animation Details
 
-### Character Animations
-- **Floating** - Smooth up/down motion (4s loop)
-- **Waving Arms** - Rotating hands animation
-- **Antenna Pulse** - Pink antenna ball pulsing
-- **Sparkles** - Twinkling stars around character
-- **Hearts** - Floating hearts animation
+### Loading Animation
+- **AGENT AGI text** - Floating up/down motion
+- **Progress bar** - Smooth 0-100% fill animation
+- **Background orbs** - Pulsing scale and opacity
 
-### Page Animations
-- **Fade In** - Sections appear as you scroll
-- **Slide Up** - Cards slide up on entrance
-- **Hover Lift** - Cards lift and glow on hover
-- **Bounce** - Buttons have playful tap animation
-- **Sparkle Background** - Continuous sparkle twinkle
+### Hero Animations
+- **Characters** - Slide in from left/right on load
+- **Text** - Staggered fade-in with delays
+- **Buttons** - Fade up with spring animation
+
+### Section Animations
+- **Scroll-triggered** - Elements fade/slide when in viewport
+- **Parallax** - Characters move at different speeds
+- **Hover effects** - Cards lift, buttons glow
+- **Menu overlay** - Fade in with staggered navigation items
 
 ## 📊 Performance
 
-- ⚡ Build time: ~3s
-- 📦 Bundle size: 344KB (110KB gzipped)
+- ⚡ Build time: ~2.86s
+- 📦 Bundle size: 347KB (110KB gzipped)
+- 🎨 CSS: 20KB (4.86KB gzipped)
+- 🖼️ Images: All WebP optimized
 - 🚀 Dev server starts in ~300ms
 - 🎯 Optimized for modern browsers
 - 📱 Mobile-first responsive design
@@ -247,63 +278,79 @@ xl: 1280px  /* Desktops */
 
 ## 🎨 Design Principles
 
-1. **Approachable** - Friendly, non-intimidating design
-2. **Cute** - Kawaii-inspired aesthetics with hearts and sparkles
-3. **Clear** - Easy to read, well-spaced content
-4. **Colorful** - Bright, happy color palette
-5. **Animated** - Smooth, playful animations throughout
-6. **Accessible** - Works for everyone
+1. **Futuristic** - AI-powered cityscape, modern aesthetic
+2. **Clean** - White space, clear hierarchy, easy navigation
+3. **Bold** - Large typography with text strokes and shadows
+4. **Immersive** - Full-screen hero, parallax effects
+5. **Optimized** - WebP images, lazy loading, smooth animations
+6. **Accessible** - Keyboard navigation, semantic HTML
 
-## 💡 Tips for Customization
+## 🔧 Technical Details
 
-### Making it More Cute
-- Add more emojis to copy
-- Increase sparkle animations
-- Use rounder corners (increase border-radius)
-- Add more pink/purple accents
+### Image Optimization
+All images converted from PNG to WebP using Sharp:
+- **Quality**: 90%
+- **Average size reduction**: 75%
+- **Transparency**: Preserved
+- **Script**: `convert-to-webp.js`
 
-### Making it More Professional
-- Reduce emoji usage
-- Simplify animations
-- Use more blue, less pink
-- Adjust copy to be less kawaii
+### Jupiter Integration
+- **Widget**: Embedded Jupiter Terminal iframe
+- **URL**: `https://jup.ag/swap/SOL-USDC?embed=true`
+- **Height**: 600px
+- **Note**: Currently SOL-USDC, will update to SOL-AGI at launch
 
-### Adding New Sections
-1. Create component in `src/components/sections/`
-2. Add content to `constants.ts`
-3. Import and add to `App.tsx`
-4. Follow existing animation patterns
+### Loading Screen
+- **Duration**: 2 seconds
+- **Exit animation**: Fade out (0.5s)
+- **Main content**: Fades in (0.6s) after loading
+- **Uses**: AnimatePresence for smooth mount/unmount
 
-## 🤝 Contributing
+## 🚀 Deployment
 
-This is a landing page project for AgentPad. To make changes:
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+### Build for Production
 
-## 📄 License
+```bash
+npm run build
+```
 
-This project is built for AgentPad. All rights reserved.
+This creates an optimized build in the `dist/` folder.
 
-## 🙏 Credits
+### Deploy to Vercel
 
-- **Design & Development** - Built with Vite, React, TypeScript, and Tailwind CSS
-- **Animations** - Powered by Framer Motion
-- **Icons** - React Icons library
-- **Fonts** - Google Fonts (Inter & Space Grotesk)
-- **Inspiration** - Cute blue AGI robot character
+```bash
+vercel deploy
+```
+
+### Deploy to Netlify
+
+```bash
+netlify deploy --prod
+```
+
+### Deploy to GitHub Pages
+
+1. Build: `npm run build`
+2. Push `dist/` folder to `gh-pages` branch
+3. Enable GitHub Pages in repository settings
 
 ## 📞 Support
 
 For issues or questions:
-- Open an issue on GitHub
+- Open an issue on GitHub: [github.com/agentagi/agentagi-website-1.0](https://github.com/agentagi/agentagi-website-1.0)
 - Contact AgentPad team
 - Check documentation at [docs.agentpad.xyz](https://docs.agentpad.xyz)
+
+## 🔗 Links
+
+- **Website**: [agentpad.xyz](https://agentpad.xyz)
+- **Docs**: [docs.agentpad.xyz](https://docs.agentpad.xyz)
+- **Launch App**: [launch.agentpad.tech](https://launch.agentpad.tech)
+- **Twitter**: [@AgentPad_Agi](https://x.com/AgentPad_Agi)
+- **Telegram**: [t.me/AgentPad_Agi](https://t.me/AgentPad_Agi)
 
 ---
 
 **Made with 💙 by the AgentPad team**
 
-*Remember: Always do your own research and stay safe, friends! 🛡️*
+*Built with Claude Sonnet 4.5 - Your AI pair programmer*

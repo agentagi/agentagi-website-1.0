@@ -35,18 +35,18 @@ const Connect = () => {
       <img
         src={agiHoodie}
         alt="AGI Hoodie Character"
-        className="absolute left-10 bottom-0 w-[450px] pointer-events-none z-10 hidden lg:block"
+        className="absolute left-10 bottom-0 w-[450px] pointer-events-none z-10 hidden 2xl:block"
       />
 
       {/* Right Character - Winter AGI */}
       <img
         src={agiWinter}
         alt="AGI Winter Character"
-        className="absolute right-10 bottom-0 w-[450px] pointer-events-none z-10 hidden lg:block"
+        className="absolute right-10 bottom-0 w-[450px] pointer-events-none z-10 hidden 2xl:block"
       />
 
       <div className="container-custom">
-        <SectionTitle>JOIN AGI&apos;S COMMUNITY</SectionTitle>
+        <SectionTitle>JOIN $AGI&apos;S COMMUNITY</SectionTitle>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {platforms.map((platform, index) => (

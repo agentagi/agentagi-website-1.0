@@ -22,7 +22,7 @@ const Footer = () => {
             {/* Logo */}
             <div className="lg:col-span-2 flex flex-col items-start gap-4">
               <h3 className="text-3xl font-display text-pudgy-navy uppercase tracking-tight">
-                AGI
+                $AGI
               </h3>
               <p className="text-pudgy-navy/80 font-medium text-sm">
                 AgentPad's AI Agent Mascot
@@ -97,7 +97,7 @@ const Footer = () => {
           <div className="border-t-2 border-pudgy-navy/20 mt-10 pt-6">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-pudgy-navy/70">
               <p className="font-medium uppercase text-xs tracking-wider">
-                &copy; 2026 AgentPad AGI. All Rights Reserved.
+                &copy; 2026 AgentPad $AGI. All Rights Reserved.
               </p>
               <div className="flex gap-6 text-xs uppercase tracking-wider font-medium">
                 <a href="#" className="hover:text-pudgy-navy transition-colors">Privacy Policy</a>

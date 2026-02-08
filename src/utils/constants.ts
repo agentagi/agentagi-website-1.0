@@ -20,14 +20,14 @@ export const SOCIAL_LINKS = {
 
 // Marquee Content
 export const MARQUEE_TOP_TEXT = '$AGI NOW LIVE';
-export const MARQUEE_DIVIDER_TEXT = 'AI IS THE FUTURE \u2022 AGENTS ARE HERE \u2022 AGI LEADS THE WAY';
-export const MARQUEE_FOOTER_TEXT = 'WELCOME TO THE HOME OF AGENT AGI!';
+export const MARQUEE_DIVIDER_TEXT = 'AI IS THE FUTURE \u2022 AGENTS ARE HERE \u2022 $AGI LEADS THE WAY';
+export const MARQUEE_FOOTER_TEXT = 'WELCOME TO THE HOME OF AGENT $AGI!';
 
 // CTA Cards (Mission section - 2 large cards)
 export const CTA_CARDS = [
   {
-    title: 'LEARN ABOUT AGI',
-    description: 'Discover the world of AI agents and how AGI is leading the charge in Web3 innovation.',
+    title: 'LEARN ABOUT $AGI',
+    description: 'Discover the world of AI agents and how $AGI is leading the charge in Web3 innovation.',
     cta: 'DISCOVER',
     link: SOCIAL_LINKS.docs,
     bgColor: 'bg-cute-lightblue',
@@ -44,8 +44,8 @@ export const CTA_CARDS = [
 // News Items (WhyFollow section)
 export const NEWS_ITEMS = [
   {
-    title: 'AGI LAUNCHES ON AGENTPAD WITH FULL AI CAPABILITIES',
-    author: 'AGI Team',
+    title: '$AGI LAUNCHES ON AGENTPAD WITH FULL AI CAPABILITIES',
+    author: '$AGI Team',
     date: 'Jan 2025',
     badge: 'JUST IN',
     bgColor: 'bg-cute-blue/20',
@@ -58,14 +58,14 @@ export const NEWS_ITEMS = [
     bgColor: 'bg-cute-lightblue',
   },
   {
-    title: 'HOW AGI IS MAKING CRYPTO LEARNING FUN AND ACCESSIBLE',
-    author: 'AGI Team',
+    title: 'HOW $AGI IS MAKING CRYPTO LEARNING FUN AND ACCESSIBLE',
+    author: '$AGI Team',
     date: 'Dec 2024',
     badge: null,
     bgColor: 'bg-cute-paleblue',
   },
   {
-    title: 'COMMUNITY SPOTLIGHT: AGENT AGI GROWS STRONGER',
+    title: 'COMMUNITY SPOTLIGHT: AGENT $AGI GROWS STRONGER',
     author: 'Community',
     date: 'Dec 2024',
     badge: null,
@@ -224,20 +224,20 @@ export const CONNECT_PLATFORMS = [
 
 // About Section Content
 export const ABOUT_CONTENT = {
-  title: 'WELCOME TO THE WORLD OF AGI',
+  title: 'WELCOME TO THE WORLD OF $AGI',
   paragraphs: [
-    "A Web3-born AI agent that fosters creativity, learning, and community. AGI is your friendly guide in the exciting world of AI agents and crypto.",
-    "Every day, AGI shares insights about new AI agent projects, explains concepts in simple ways, and helps the community make informed decisions.",
+    "A Web3-born AI agent that fosters creativity, learning, and community. $AGI is your friendly guide in the exciting world of AI agents and crypto.",
+    "Every day, $AGI shares insights about new AI agent projects, explains concepts in simple ways, and helps the community make informed decisions.",
   ],
 };
 
 // Hero Section Content
 export const HERO_CONTENT = {
   headline: 'AGENT $AGI',
-  subheadline: "AGENTPAD'S AI AGENT MASCOT",
-  description: 'Join the AGI community for daily AI adventures, crypto insights, and a whole lot of fun.',
+  subheadline: "OFFICIAL MASCOT",
+  description: 'Join the $AGI community for daily AI adventures, crypto insights, and a whole lot of fun.',
   ctaPrimary: {
-    text: 'JOIN AGENT AGI',
+    text: 'JOIN AGENT $AGI',
     link: '#connect',
   },
   ctaSecondary: {
@@ -249,12 +249,12 @@ export const HERO_CONTENT = {
 // Footer Links
 export const FOOTER_LINKS = {
   theTeam: [
-    { label: 'About AGI', href: '#about' },
+    { label: 'About $AGI', href: '#about' },
     { label: 'Mission', href: '#mission' },
     { label: 'Personality', href: '#personality' },
   ],
   agentLore: [
-    { label: 'AGI Story', href: '#about' },
+    { label: '$AGI Story', href: '#about' },
     { label: 'Agent AGI', href: '#' },
     { label: 'Community', href: '#' },
   ],

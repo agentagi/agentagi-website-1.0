@@ -7,7 +7,7 @@ const Personality = () => {
   return (
     <section className="section bg-cute-lightblue/30" id="ecosystem">
       <div className="container-custom">
-        <SectionTitle>AGI ECOSYSTEM FLOW</SectionTitle>
+        <SectionTitle>$AGI ECOSYSTEM FLOW</SectionTitle>
 
         <motion.p
           className="text-center text-lg md:text-xl text-pudgy-navy/70 max-w-4xl mx-auto mb-12 md:mb-16"
@@ -16,7 +16,7 @@ const Personality = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          AGI ecosystem is designed to create continuous value for the $AGI token through a simple, transparent mechanism.
+          $AGI ecosystem is designed to create continuous value for the $AGI token through a simple, transparent mechanism.
         </motion.p>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">

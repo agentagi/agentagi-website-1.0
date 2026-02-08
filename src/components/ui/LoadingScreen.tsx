@@ -45,10 +45,10 @@ const LoadingScreen = () => {
           transition={{ duration: 0.5 }}
         >
           <motion.h1
-            className="text-6xl md:text-8xl font-display text-cute-blue uppercase tracking-tight"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-display text-cute-blue uppercase tracking-tight px-4 text-center"
             style={{
-              WebkitTextStroke: '3px #2a2a6e',
-              textShadow: '6px 6px 0px #2a2a6e, 12px 12px 0px rgba(42, 42, 110, 0.3)'
+              WebkitTextStroke: '2px #2a2a6e',
+              textShadow: '4px 4px 0px #2a2a6e, 8px 8px 0px rgba(42, 42, 110, 0.3)'
             }}
             animate={{
               y: [0, -10, 0],
@@ -59,7 +59,7 @@ const LoadingScreen = () => {
               ease: "easeInOut"
             }}
           >
-            AGENT AGI
+            AGENTPAD $AGI
           </motion.h1>
         </motion.div>
 
