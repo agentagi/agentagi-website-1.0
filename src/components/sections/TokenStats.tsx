@@ -59,18 +59,21 @@ const TokenStats = () => {
       label: 'TOTAL SUPPLY',
       value: '1B',
       suffix: '$AGI',
+      suffixColor: undefined,
     },
     {
       icon: <BuybackIcon />,
       label: 'TOTAL BUYBACK',
       value: stats ? formatNumber(stats.buybackSol) : '--',
       suffix: 'SOL',
+      suffixColor: undefined,
     },
     {
       icon: <BurnIcon />,
       label: 'TOTAL BURNT',
       value: stats ? formatCompact(stats.burnedAmount) : '--',
       suffix: '$AGI',
+      suffixColor: undefined,
     },
   ];
 
@@ -87,6 +90,7 @@ const TokenStats = () => {
       label: 'MARKET CAP',
       value: stats ? `$${formatCompact(stats.marketCap)}` : '--',
       suffix: '',
+      suffixColor: undefined,
     },
   ];
 
