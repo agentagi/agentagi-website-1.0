@@ -79,25 +79,36 @@ Multiple AGI character variants throughout the site:
    - Transparent tokenomics display
    - Clear description of $AGI token mechanics
 
-5. **Parallax Characters Section**
+5. **Live Counter Section** - "LIVE COUNTER $AGI"
+   - Real-time token metrics with auto-refresh every 5 minutes
+   - 5 metric cards in 3-2 grid layout (3 top, 2 bottom)
+   - **Total Supply**: Live circulating supply with full number display
+   - **Total Buyback**: Live SOL balance in buyback wallet
+   - **Total Burnt**: Automatically calculated (1B - Current Supply)
+   - **Price**: Live price with 24h % change from DexScreener
+   - **Market Cap**: Live market cap from DexScreener
+   - Custom futuristic SVG icons in cyan blue theme
+   - Powered by Helius RPC for blockchain data
+
+6. **Parallax Characters Section**
    - Multiple AGI characters in different outfits
    - Parallax scrolling effect
    - Interactive hover animations
 
-6. **Swap Section** - "Swap with $AGI"
+7. **Swap Section** - "Swap with $AGI"
    - Embedded Jupiter Terminal iframe
    - SOL to USDC swap (placeholder until $AGI launch)
    - Clean integration matching site theme
    - Fully responsive with mobile optimization
 
-7. **Connect Section** - "Join $AGI's Community"
+8. **Connect Section** - "Join $AGI's Community"
    - Custom 3D social icons (Telegram, X, DexScreener)
    - Winter AGI and Hoodie AGI flanking the cards (2xl+ screens only)
    - Absolute positioned characters (450px width)
    - Direct links to social channels
    - Characters hide on smaller screens to prevent overlap
 
-8. **Footer**
+9. **Footer**
    - Marquee ticker with AGI messaging
    - Social media icons with hover effects
    - Copyright 2026
@@ -350,6 +361,19 @@ All images converted from PNG to WebP using Sharp:
 - **Main content**: Fades in (0.6s) after loading
 - **Uses**: AnimatePresence for smooth mount/unmount
 
+### Live Counter Integration
+- **Data Source**: Helius RPC API for blockchain data
+- **API Endpoint**: `https://mainnet.helius-rpc.com`
+- **Update Frequency**: Auto-refresh every 5 minutes
+- **Metrics Tracked**:
+  - Total Supply: `getTokenSupply` RPC call
+  - Buyback SOL: `getBalance` RPC call on buyback wallet
+  - Burnt Tokens: Calculated (Original Supply - Current Supply)
+  - Price & Market Cap: DexScreener API
+- **Environment Variable**: `VITE_HELIUS_API_KEY` (required)
+- **Free Tier**: 100k requests/day, no credit card required
+- **No Authentication Required** for DexScreener API
+
 ## 🚀 Deployment
 
 ### Build for Production
@@ -362,11 +386,29 @@ This creates an optimized build in the `dist/` folder.
 
 ### Deploy to Vercel
 
+**Important: Add Environment Variable**
+
+Before deploying, add the Helius API key in Vercel:
+
+1. Go to Vercel Dashboard → Your Project → Settings
+2. Navigate to **Environment Variables**
+3. Add variable:
+   - **Name**: `VITE_HELIUS_API_KEY`
+   - **Value**: Your Helius API key from https://helius.dev
+   - **Environment**: Select all (Production, Preview, Development)
+4. Click **Save**
+5. Redeploy for changes to take effect
+
 ```bash
 vercel deploy
 ```
 
 ### Deploy to Netlify
+
+Add environment variable in Netlify:
+
+1. Site Settings → Environment Variables
+2. Add: `VITE_HELIUS_API_KEY` with your API key
 
 ```bash
 netlify deploy --prod
@@ -377,6 +419,7 @@ netlify deploy --prod
 1. Build: `npm run build`
 2. Push `dist/` folder to `gh-pages` branch
 3. Enable GitHub Pages in repository settings
+4. **Note**: Environment variables must be set at build time
 
 ## 📞 Support
 
