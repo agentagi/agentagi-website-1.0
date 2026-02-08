@@ -53,3 +53,19 @@ export function formatCompact(num: number): string {
     return num.toFixed(0);
   }
 }
+
+/**
+ * Format SOL amount with decimals (e.g., 10.18)
+ */
+export function formatSol(sol: number): string {
+  if (sol === null || sol === undefined || isNaN(sol)) return '--';
+
+  // Show up to 4 decimal places for small amounts, 2 for larger amounts
+  if (sol < 1) {
+    return sol.toFixed(4);
+  } else if (sol < 100) {
+    return sol.toFixed(2);
+  } else {
+    return sol.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+}

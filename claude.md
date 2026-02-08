@@ -374,6 +374,81 @@ All images converted from PNG to WebP using Sharp:
 - **Free Tier**: 100k requests/day, no credit card required
 - **No Authentication Required** for DexScreener API
 
+## 🔄 Switching from Test Token to Production
+
+**Current Status**: The site is configured with a test token for development.
+
+### When Ready to Launch with Real $AGI Token
+
+Follow these steps to switch to your production token:
+
+#### 1. Update Token Configuration
+
+Edit `src/utils/constants.ts` and update the `TOKEN_CONFIG` object:
+
+```typescript
+export const TOKEN_CONFIG = {
+  // ⚠️ CHANGE THIS: Replace with your real $AGI token contract address
+  address: 'YOUR_REAL_AGI_TOKEN_ADDRESS_HERE',
+
+  symbol: '$AGI',
+  decimals: 9, // Verify this matches your token contract
+
+  // ⚠️ CHANGE THIS: Replace with your production buyback/burn wallet
+  buybackBurnWallet: 'YOUR_PRODUCTION_WALLET_ADDRESS_HERE',
+
+  // ⚠️ VERIFY THIS: Confirm this matches your token's initial supply
+  originalSupply: 1_000_000_000, // 1 billion tokens
+};
+```
+
+#### 2. What Each Setting Does
+
+- **`address`**: Your $AGI token contract address on Solana
+  - Used to fetch price, supply, and market cap data
+  - The Live Counter pulls data for this token
+
+- **`buybackBurnWallet`**: Your buyback & burn wallet address
+  - Used to track SOL spent on buybacks (analyzes transaction history)
+  - Should be the wallet that executes buyback transactions
+
+- **`originalSupply`**: Initial token supply at launch
+  - Used to calculate burnt tokens: `Burnt = originalSupply - currentSupply`
+  - Must match your token's creation supply (e.g., 1 billion)
+
+#### 3. Testing Before Production
+
+```bash
+# 1. Update constants.ts with production values
+# 2. Test locally
+npm run dev
+
+# 3. Verify Live Counter displays correct data:
+#    - Total Supply matches on-chain data
+#    - Buyback SOL shows transaction history correctly
+#    - Burnt amount is calculated correctly
+#    - Price and Market Cap load from DexScreener
+
+# 4. Build and test production bundle
+npm run build
+npm run preview
+```
+
+#### 4. Verify on Staging/Preview
+
+- Deploy to Vercel preview/staging environment first
+- Check Live Counter metrics match blockchain explorers:
+  - Compare Total Supply with Solscan/Solana Explorer
+  - Verify Burnt amount calculation is accurate
+  - Confirm Buyback SOL matches your wallet's transaction history
+  - Check Price/Market Cap against DexScreener
+
+#### 5. Deploy to Production
+
+Once verified on staging, deploy to production (see Deployment section below).
+
+---
+
 ## 🚀 Deployment
 
 ### Build for Production

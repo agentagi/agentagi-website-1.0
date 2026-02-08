@@ -1,3 +1,18 @@
+// ============================================================================
+// 🚀 DEPLOYMENT CONFIGURATION
+// ============================================================================
+//
+// WHEN READY TO DEPLOY WITH REAL $AGI TOKEN:
+//
+// 1. Update TOKEN_CONFIG.address with your real $AGI token contract address
+// 2. Update TOKEN_CONFIG.buybackBurnWallet with your production wallet address
+// 3. Verify TOKEN_CONFIG.originalSupply matches your token's initial supply
+// 4. Test on staging/preview before production deployment
+// 5. Verify Live Counter displays correct data after deployment
+//
+// Current Status: TESTING MODE (using test token)
+// ============================================================================
+
 // Colors
 export const COLORS = {
   bg: '#FFFFFF',
@@ -11,21 +26,27 @@ export const COLORS = {
 
 // Token Configuration
 export const TOKEN_CONFIG = {
-  // Testing with provided token address
+  // ⚠️ CHANGE THIS: Real $AGI token contract address on Solana
+  // Current: Test token
+  // Production: Replace with real $AGI address when launched
   address: 'CxaFB5nDJVuQFqvc54po7axg7iV3STZMGPzhrx5ZdcDS',
-  symbol: '$AGI', // Display as $AGI even during testing
-  decimals: 9, // Standard SPL token decimals
 
-  // Buyback & Burn wallet - holds both SOL (for buybacks) and burnt $AGI tokens
+  symbol: '$AGI',
+  decimals: 9, // Standard SPL token decimals (verify from contract)
+
+  // ⚠️ CHANGE THIS: Buyback & Burn wallet address
+  // This wallet holds SOL for buybacks and receives burnt $AGI tokens
+  // Update this with your production buyback/burn wallet address
   buybackBurnWallet: 'FCLBrwZY1fahuRcu6cFhKmvSYAfA1fBhweCn4nggkG59',
 
-  // Original total supply when token was created (1 billion)
+  // ⚠️ VERIFY THIS: Original total supply when token was created
+  // Used to calculate burnt amount: Burnt = originalSupply - currentSupply
+  // Make sure this matches your token's initial supply (e.g., 1 billion)
   originalSupply: 1_000_000_000,
 
-  // Previous test addresses:
+  // 📝 Reference - Previous test addresses:
   // JUP: 'JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN'
-  // $AGI address (use when launched):
-  // address: '7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU',
+  // Example $AGI: '7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU'
 };
 
 // Social Links

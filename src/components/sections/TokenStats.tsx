@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useTokenStats } from '../../hooks/useTokenStats';
-import { formatNumber, formatPrice, formatPercentage, formatCompact } from '../../utils/tokenUtils';
+import { formatNumber, formatPrice, formatPercentage, formatCompact, formatSol } from '../../utils/tokenUtils';
 import SectionTitle from '../ui/SectionTitle';
 
 // Custom Icon Components
@@ -64,7 +64,7 @@ const TokenStats = () => {
     {
       icon: <BuybackIcon />,
       label: 'TOTAL BUYBACK',
-      value: stats ? formatNumber(stats.buybackSol) : '--',
+      value: stats ? formatSol(stats.buybackSol) : '--',
       suffix: 'SOL',
       suffixColor: undefined,
     },
