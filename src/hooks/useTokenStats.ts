@@ -1,0 +1,189 @@
+import { useState, useEffect, useCallback } from 'react';
+import { TOKEN_CONFIG } from '../utils/constants';
+
+export interface TokenStats {
+  price: number;
+  priceChange24h: number;
+  marketCap: number;
+  burnedAmount: number;
+  buybackSol: number;
+}
+
+interface UseTokenStatsReturn {
+  stats: TokenStats | null;
+  loading: boolean;
+  error: string | null;
+  refetch: () => Promise<void>;
+}
+
+const ANKR_RPC_ENDPOINT = 'https://rpc.ankr.com/solana';
+const UPDATE_INTERVAL = 5 * 60 * 1000; // 5 minutes in milliseconds
+
+/**
+ * Custom hook to fetch and manage $AGI token statistics
+ * Auto-refreshes every 5 minutes
+ * Uses DexScreener API for price data and Ankr RPC for burn data
+ */
+export function useTokenStats(tokenAddress: string = TOKEN_CONFIG.address): UseTokenStatsReturn {
+  const [stats, setStats] = useState<TokenStats | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  /**
+   * Fetch SOL balance from buyback/burn wallet using Ankr RPC
+   */
+  const fetchBuybackSol = async (): Promise<number> => {
+    try {
+      const response = await fetch(ANKR_RPC_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          jsonrpc: '2.0',
+          id: 1,
+          method: 'getBalance',
+          params: [TOKEN_CONFIG.buybackBurnWallet],
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.error) {
+        console.warn('Failed to fetch SOL balance:', data.error.message);
+        return 0;
+      }
+
+      // Convert lamports to SOL (1 SOL = 1,000,000,000 lamports)
+      const lamports = data.result?.value || 0;
+      const sol = lamports / 1_000_000_000;
+
+      return sol;
+    } catch (err) {
+      console.warn('Error fetching SOL balance:', err);
+      return 0;
+    }
+  };
+
+  /**
+   * Fetch burned token amount from buyback/burn wallet using Ankr RPC
+   */
+  const fetchBurnedAmount = async (): Promise<number> => {
+    try {
+      // Get token accounts for the buyback/burn wallet
+      const response = await fetch(ANKR_RPC_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          jsonrpc: '2.0',
+          id: 1,
+          method: 'getTokenAccountsByOwner',
+          params: [
+            TOKEN_CONFIG.buybackBurnWallet,
+            { mint: tokenAddress },
+            { encoding: 'jsonParsed' },
+          ],
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.error) {
+        console.warn('Failed to fetch burn amount:', data.error.message);
+        return 0;
+      }
+
+      const accounts = data.result?.value || [];
+      if (accounts.length === 0) return 0;
+
+      // Sum up all token balances
+      const totalBurned = accounts.reduce((sum: number, account: any) => {
+        const balance = account.account?.data?.parsed?.info?.tokenAmount?.uiAmount || 0;
+        return sum + balance;
+      }, 0);
+
+      return totalBurned;
+    } catch (err) {
+      console.warn('Error fetching burned amount:', err);
+      return 0;
+    }
+  };
+
+  /**
+   * Fetch price and market data from DexScreener
+   */
+  const fetchPriceData = async () => {
+    const response = await fetch(
+      `https://api.dexscreener.com/latest/dex/tokens/${tokenAddress}`
+    );
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch token data');
+    }
+
+    const data = await response.json();
+    const pairs = data.pairs || [];
+
+    if (pairs.length === 0) {
+      throw new Error('No trading pairs found');
+    }
+
+    // Use the first pair (usually highest liquidity)
+    const pair = pairs[0];
+
+    return {
+      price: parseFloat(pair.priceUsd || '0'),
+      priceChange24h: parseFloat(pair.priceChange?.h24 || '0'),
+      marketCap: parseFloat(pair.marketCap || pair.fdv || '0'),
+    };
+  };
+
+  /**
+   * Fetch all token statistics
+   */
+  const fetchStats = useCallback(async () => {
+    try {
+      setLoading(true);
+      setError(null);
+
+      // Fetch all data in parallel
+      const [priceData, burnedAmount, buybackSol] = await Promise.all([
+        fetchPriceData(),
+        fetchBurnedAmount(),
+        fetchBuybackSol(),
+      ]);
+
+      setStats({
+        price: priceData.price,
+        priceChange24h: priceData.priceChange24h,
+        marketCap: priceData.marketCap,
+        burnedAmount,
+        buybackSol,
+      });
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Failed to fetch token stats';
+      setError(errorMessage);
+      console.error('Error fetching token stats:', err);
+    } finally {
+      setLoading(false);
+    }
+  }, [tokenAddress]);
+
+  // Initial fetch on mount
+  useEffect(() => {
+    fetchStats();
+
+    // Set up auto-refresh every 5 minutes
+    const intervalId = setInterval(() => {
+      fetchStats();
+    }, UPDATE_INTERVAL);
+
+    // Cleanup interval on unmount
+    return () => clearInterval(intervalId);
+  }, [fetchStats]);
+
+  return {
+    stats,
+    loading,
+    error,
+    refetch: fetchStats,
+  };
+}

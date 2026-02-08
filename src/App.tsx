@@ -6,6 +6,7 @@ import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import Mission from './components/sections/Mission';
 import Personality from './components/sections/Personality';
+import TokenStats from './components/sections/TokenStats';
 import WhyFollow from './components/sections/WhyFollow';
 import Connect from './components/sections/Connect';
 import LoadingScreen from './components/ui/LoadingScreen';
@@ -43,6 +44,7 @@ function App() {
           <About />
           <Mission />
           <Personality />
+          <TokenStats />
           <WhyFollow />
           <Connect />
         </main>

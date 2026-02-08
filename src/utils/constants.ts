@@ -9,6 +9,22 @@ export const COLORS = {
   textSecondary: '#5a5a7a',
 };
 
+// Token Configuration
+export const TOKEN_CONFIG = {
+  // Testing with provided token address
+  address: 'CxaFB5nDJVuQFqvc54po7axg7iV3STZMGPzhrx5ZdcDS',
+  symbol: '$AGI', // Display as $AGI even during testing
+  decimals: 9, // Standard SPL token decimals
+
+  // Buyback & Burn wallet - holds both SOL (for buybacks) and burnt $AGI tokens
+  buybackBurnWallet: 'FCLBrwZY1fahuRcu6cFhKmvSYAfA1fBhweCn4nggkG59',
+
+  // Previous test addresses:
+  // JUP: 'JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN'
+  // $AGI address (use when launched):
+  // address: '7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU',
+};
+
 // Social Links
 export const SOCIAL_LINKS = {
   twitter: 'https://x.com/AgentPad_Agi',
@@ -237,11 +253,11 @@ export const HERO_CONTENT = {
   subheadline: "OFFICIAL MASCOT",
   description: 'Join the $AGI community for daily AI adventures, crypto insights, and a whole lot of fun.',
   ctaPrimary: {
-    text: 'JOIN AGENT $AGI',
+    text: 'JOIN AGENTPAD $AGI',
     link: '#connect',
   },
   ctaSecondary: {
-    text: 'EXPLORE AGENTPAD',
+    text: 'EXPLORE AGENTPAD $AGI',
     link: 'https://launch.agentpad.tech/',
   },
 };

@@ -51,13 +51,16 @@ Multiple AGI character variants throughout the site:
 
 ### Page Sections
 
-1. **Hero Section** - "AGENT $AGI"
+1. **Hero Section** - "AGENTPAD $AGI"
    - Futuristic cityscape background (full viewport height)
-   - Large panda AGI waving on left
-   - Large waving AGI on right
-   - Bold uppercase headline with text stroke
+   - Two-line headline: "AGENTPAD" on top, "$AGI" below
+   - Large panda AGI waving on left (2xl+ screens only)
+   - Large waving AGI on right (2xl+ screens only)
+   - Bold uppercase headline with text stroke and shadow
+   - "OFFICIAL MASCOT" subheadline
    - Dark navy text for readability
    - Dual CTAs (Join Community, Explore AgentPad)
+   - Fully responsive from mobile to desktop
 
 2. **About Section** - "Welcome to the World of AGI"
    - AGI Explorer character with floating animation
@@ -70,26 +73,29 @@ Multiple AGI character variants throughout the site:
    - Links to docs and AgentPad platform
    - Clean card design with hover effects
 
-4. **Personality Section** - "AGI Ecosystem Flow"
+4. **Personality Section** - "$AGI Ecosystem Flow"
    - 3-step ecosystem explanation
    - Fee Collection → Token Buyback → Token Burn
    - Transparent tokenomics display
+   - Clear description of $AGI token mechanics
 
 5. **Parallax Characters Section**
    - Multiple AGI characters in different outfits
    - Parallax scrolling effect
    - Interactive hover animations
 
-6. **Swap Section** - "Swap with AGI"
+6. **Swap Section** - "Swap with $AGI"
    - Embedded Jupiter Terminal iframe
    - SOL to USDC swap (placeholder until $AGI launch)
    - Clean integration matching site theme
+   - Fully responsive with mobile optimization
 
-7. **Connect Section** - "Join AGI's Community"
+7. **Connect Section** - "Join $AGI's Community"
    - Custom 3D social icons (Telegram, X, DexScreener)
-   - Winter AGI and Hoodie AGI flanking the cards
+   - Winter AGI and Hoodie AGI flanking the cards (2xl+ screens only)
    - Absolute positioned characters (450px width)
    - Direct links to social channels
+   - Characters hide on smaller screens to prevent overlap
 
 8. **Footer**
    - Marquee ticker with AGI messaging
@@ -99,21 +105,33 @@ Multiple AGI character variants throughout the site:
 ### Header
 - **Sticky navigation** with auto-hide on scroll down
 - **Top marquee** - "$AGI NOW LIVE"
-- **MENU button** - Opens full-page overlay (white bg with navy border)
-- **BUY $AGI button** - Links to X/Twitter (white bg with navy border)
+- **$AGI logo** - Centered, responsive sizing
+- **MENU button** - Opens full-page overlay (white bg with navy border, responsive)
+- **BUY $AGI button** - Links to X/Twitter (white bg with navy border, responsive)
 - **Full-page menu** - Two-column navigation with blue ornamental blobs
+- **Menu items** - "ABOUT $AGI", "MISSION", "$AGI ECOSYSTEM", "SWAP", "JOIN COMMUNITY"
 - **Social icons** - Telegram, X, DexScreener in menu
 - **No bottom links** - Clean menu footer
+- **Responsive** - Buttons and text scale from mobile to desktop
 
 ### Loading Screen
-- **AGENT AGI logo** with bold text stroke
-- **Progress bar** animation
+- **AGENTPAD $AGI logo** with bold text stroke
+- **Progress bar** animation (0-100%)
 - **Gradient background** with animated blue orbs
 - **2-second duration** before main content fades in
+- **Responsive text** - Scales from mobile to desktop
+- **Smooth fade out** transition to main content
 
-## 🎯 Tone & Voice
+## 🎯 Branding & Tone
 
-AGI communicates with a **professional yet friendly** tone:
+**Branding Consistency:**
+- All references use **$AGI** (with dollar sign) throughout the site
+- "AGENTPAD $AGI" as the main title
+- Consistent cyan blue (#40C4FF) for brand color
+- Navy blue (#2a2a6e) for text and accents
+
+**Tone & Voice:**
+$AGI communicates with a **professional yet friendly** tone:
 
 - Direct and clear messaging
 - Focus on AI agents and Web3 innovation
@@ -255,10 +273,12 @@ Edit `tailwind.config.js` to customize:
 - ⚡ Build time: ~2.86s
 - 📦 Bundle size: 347KB (110KB gzipped)
 - 🎨 CSS: 20KB (4.86KB gzipped)
-- 🖼️ Images: All WebP optimized
+- 🖼️ Images: All WebP optimized (75% size reduction)
 - 🚀 Dev server starts in ~300ms
 - 🎯 Optimized for modern browsers
-- 📱 Mobile-first responsive design
+- 📱 Fully responsive: Mobile (320px+) to Ultra-wide (2560px+)
+- ♿ Overflow-x-hidden for smooth scrolling
+- 🎭 Character images hide on smaller screens (< 1536px) to prevent overlap
 
 ## 🌐 Browser Support
 
@@ -270,11 +290,20 @@ Edit `tailwind.config.js` to customize:
 ## 📱 Responsive Breakpoints
 
 ```css
-sm: 640px   /* Small tablets */
-md: 768px   /* Tablets */
-lg: 1024px  /* Laptops */
-xl: 1280px  /* Desktops */
+sm: 640px    /* Small tablets */
+md: 768px    /* Tablets */
+lg: 1024px   /* Laptops */
+xl: 1280px   /* Desktops */
+2xl: 1536px  /* Large desktops - Characters appear at this size */
 ```
+
+**Responsive Features:**
+- Text scales smoothly across all breakpoints
+- Characters only display on 2xl+ screens (1536px+)
+- Header buttons adapt in size and padding
+- Jupiter swap widget adjusts height for mobile
+- All sections have responsive padding
+- No horizontal scroll on any device
 
 ## 🎨 Design Principles
 
@@ -284,6 +313,21 @@ xl: 1280px  /* Desktops */
 4. **Immersive** - Full-screen hero, parallax effects
 5. **Optimized** - WebP images, lazy loading, smooth animations
 6. **Accessible** - Keyboard navigation, semantic HTML
+
+## 🎨 Recent Updates (v1.0)
+
+**Major Changes:**
+- ✅ Hero layout changed to two-line display: "AGENTPAD" + "$AGI"
+- ✅ All "AGI" references updated to "$AGI" for consistent branding
+- ✅ Subheadline changed to "OFFICIAL MASCOT"
+- ✅ Comprehensive responsive design for all screen sizes
+- ✅ Characters only show on 2xl+ screens (1536px+) to prevent overlap
+- ✅ Loading screen updated to "AGENTPAD $AGI"
+- ✅ Header buttons with white backgrounds
+- ✅ Navigation menu items updated ($AGI branding)
+- ✅ Removed bottom links from menu overlay
+- ✅ Added overflow-x-hidden to prevent horizontal scroll
+- ✅ Mobile-first responsive improvements across all sections
 
 ## 🔧 Technical Details
 
