@@ -82,13 +82,13 @@ Multiple AGI character variants throughout the site:
 5. **Live Counter Section** - "LIVE COUNTER $AGI"
    - Real-time token metrics with auto-refresh every 5 minutes
    - 5 metric cards in 3-2 grid layout (3 top, 2 bottom)
-   - **Total Supply**: Live circulating supply with full number display
-   - **Total Buyback**: Live SOL balance in buyback wallet
-   - **Total Burnt**: Automatically calculated (1B - Current Supply)
+   - **Total Supply**: Live circulating supply with full number display (e.g., 938,398,940)
+   - **Total Buyback**: Cumulative SOL spent on buybacks with decimals (e.g., 10.18 SOL)
+   - **Total Burnt**: Automatically calculated (Original Supply - Current Supply)
    - **Price**: Live price with 24h % change from DexScreener
    - **Market Cap**: Live market cap from DexScreener
    - Custom futuristic SVG icons in cyan blue theme
-   - Powered by Helius RPC for blockchain data
+   - Powered by Helius RPC and DexScreener APIs
 
 6. **Parallax Characters Section**
    - Multiple AGI characters in different outfits
@@ -366,13 +366,14 @@ All images converted from PNG to WebP using Sharp:
 - **API Endpoint**: `https://mainnet.helius-rpc.com`
 - **Update Frequency**: Auto-refresh every 5 minutes
 - **Metrics Tracked**:
-  - Total Supply: `getTokenSupply` RPC call
-  - Buyback SOL: `getBalance` RPC call on buyback wallet
-  - Burnt Tokens: Calculated (Original Supply - Current Supply)
+  - Total Supply: `getTokenSupply` RPC call (displays with full decimals)
+  - Buyback SOL: Transaction history analysis via Helius enhanced API (cumulative SOL spent, displays with 2-4 decimals)
+  - Burnt Tokens: Calculated (Original Supply - Current Supply, displays in compact format)
   - Price & Market Cap: DexScreener API
 - **Environment Variable**: `VITE_HELIUS_API_KEY` (required)
 - **Free Tier**: 100k requests/day, no credit card required
 - **No Authentication Required** for DexScreener API
+- **Formatting Functions**: `formatNumber()`, `formatSol()`, `formatCompact()`, `formatPrice()` in `src/utils/tokenUtils.ts`
 
 ## 🔄 Switching from Test Token to Production
 
