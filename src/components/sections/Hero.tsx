@@ -65,8 +65,7 @@ const Hero = () => {
                 textShadow: '4px 4px 0px #2a2a6e, 8px 8px 0px rgba(42, 42, 110, 0.3)'
               }}
             >
-              <div>AGENTPAD</div>
-              <div>$AGI</div>
+              AGENT AGI
             </h1>
 
             <motion.p

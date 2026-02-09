@@ -10,9 +10,10 @@ const Header = () => {
 
   const menuItems = [
     { label: 'HOME', href: '#' },
-    { label: 'ABOUT $AGI', href: '#about' },
+    { label: 'ABOUT AGI', href: '#about' },
     { label: 'MISSION', href: '#mission' },
-    { label: '$AGI ECOSYSTEM', href: '#ecosystem' },
+    { label: 'AGI ECOSYSTEM', href: '#ecosystem' },
+    { label: 'LIVE COUNTER', href: '#stats' },
     { label: 'SWAP', href: '#why-follow' },
     { label: 'JOIN COMMUNITY', href: '#connect' },
   ];

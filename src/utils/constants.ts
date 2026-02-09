@@ -274,14 +274,14 @@ export const ABOUT_CONTENT = {
 // Hero Section Content
 export const HERO_CONTENT = {
   headline: 'AGENT $AGI',
-  subheadline: "OFFICIAL MASCOT",
-  description: 'Join the $AGI community for daily AI adventures, crypto insights, and a whole lot of fun.',
+  subheadline: "Powered by AgentPad",
+  description: 'Welcome to Agent Agi — your source for daily AI agent news and cutting-edge updates. Join the community and be part of the most powerful \'Buy & Burn\' flywheel driving maximum upside for $AGI',
   ctaPrimary: {
-    text: 'JOIN AGENTPAD $AGI',
-    link: '#connect',
+    text: 'JOIN AGENTPAD AGI',
+    link: 'https://linktr.ee/agentpad_agi',
   },
   ctaSecondary: {
-    text: 'EXPLORE AGENTPAD $AGI',
+    text: 'EXPLORE AGENTPAD AGI',
     link: 'https://launch.agentpad.tech/',
   },
 };

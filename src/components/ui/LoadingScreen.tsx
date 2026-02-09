@@ -59,7 +59,7 @@ const LoadingScreen = () => {
               ease: "easeInOut"
             }}
           >
-            AGENTPAD $AGI
+            AGENTPAD AGI
           </motion.h1>
         </motion.div>
 
