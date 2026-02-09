@@ -44,23 +44,33 @@ const LoadingScreen = () => {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <motion.h1
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-display text-cute-blue uppercase tracking-tight px-4 text-center"
-            style={{
-              WebkitTextStroke: '2px #2a2a6e',
-              textShadow: '4px 4px 0px #2a2a6e, 8px 8px 0px rgba(42, 42, 110, 0.3)'
-            }}
-            animate={{
-              y: [0, -10, 0],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          >
-            AGENTPAD AGI
-          </motion.h1>
+          <div className="flex flex-col items-center gap-3">
+            <motion.h1
+              className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-display text-cute-blue uppercase tracking-tight px-4 text-center"
+              style={{
+                WebkitTextStroke: '2px #2a2a6e',
+                textShadow: '4px 4px 0px #2a2a6e, 8px 8px 0px rgba(42, 42, 110, 0.3)'
+              }}
+              animate={{
+                y: [0, -10, 0],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              AGENTPAD AGI
+            </motion.h1>
+            <motion.p
+              className="text-pudgy-navy font-display tracking-wide text-sm sm:text-base md:text-lg"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+            >
+              Powered by AgentPad
+            </motion.p>
+          </div>
         </motion.div>
 
         {/* Loading bar */}
