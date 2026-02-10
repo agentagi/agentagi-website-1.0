@@ -26,25 +26,24 @@ export const COLORS = {
 
 // Token Configuration
 export const TOKEN_CONFIG = {
-  // ⚠️ CHANGE THIS: Real $AGI token contract address on Solana
-  // Current: Test token
-  // Production: Replace with real $AGI address when launched
-  address: 'CxaFB5nDJVuQFqvc54po7axg7iV3STZMGPzhrx5ZdcDS',
+  // SMOL CAT 2 token contract address on Solana
+  // Production: SMOL CAT 2 token
+  address: 'DHtrXDg2Ft5pamHTRxgwUHm9wNo6hMxf55BK97AZM5xS',
 
-  symbol: '$AGI',
+  symbol: 'SMOL CAT 2',
   decimals: 9, // Standard SPL token decimals (verify from contract)
 
-  // ⚠️ CHANGE THIS: Buyback & Burn wallet address
-  // This wallet holds SOL for buybacks and receives burnt $AGI tokens
-  // Update this with your production buyback/burn wallet address
-  buybackBurnWallet: 'FCLBrwZY1fahuRcu6cFhKmvSYAfA1fBhweCn4nggkG59',
+  // Buyback & Burn wallet address
+  // This wallet holds SOL for buybacks and receives burnt SMOL CAT 2 tokens
+  buybackBurnWallet: 'FgggJdPswcEKFvXUzyjgGwVLVYQXj6ZLP4WaA3CWLWbR',
 
-  // ⚠️ VERIFY THIS: Original total supply when token was created
+  // Original total supply when token was created
   // Used to calculate burnt amount: Burnt = originalSupply - currentSupply
-  // Make sure this matches your token's initial supply (e.g., 1 billion)
-  originalSupply: 1_000_000_000,
+  originalSupply: 1_000_000_000, // 1 billion tokens
 
-  // 📝 Reference - Previous test addresses:
+  // 📝 Reference - Previous addresses:
+  // Previous Test Token: 'CxaFB5nDJVuQFqvc54po7axg7iV3STZMGPzhrx5ZdcDS'
+  // Previous Wallet: 'FCLBrwZY1fahuRcu6cFhKmvSYAfA1fBhweCn4nggkG59'
   // JUP: 'JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN'
   // Example $AGI: '7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU'
 };
