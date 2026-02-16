@@ -6,6 +6,17 @@
 ![Styled with Tailwind CSS](https://img.shields.io/badge/Styled%20with-Tailwind%20CSS-38bdf8)
 ![Animated with Framer Motion](https://img.shields.io/badge/Animated%20with-Framer%20Motion-ff0055)
 
+## 🎯 Current Configuration
+
+**Status**: ✅ PRODUCTION MODE - SMOL CAT 2
+
+This landing page is currently configured to track the **SMOL CAT 2** token:
+- **Token Address**: `DHtrXDg2Ft5pamHTRxgwUHm9wNo6hMxf55BK97AZM5xS`
+- **Wallet Address**: `FgggJdPswcEKFvXUzyjgGwVLVYQXj6ZLP4WaA3CWLWbR`
+- **Original Supply**: 1,000,000,000 (1 billion tokens)
+
+The Live Counter section displays real-time metrics for SMOL CAT 2 token.
+
 ## 🎨 Design Theme
 
 This landing page features a **futuristic, friendly, and immersive** design based on AGI's universe:
@@ -80,15 +91,19 @@ Multiple AGI character variants throughout the site:
    - Clear description of $AGI token mechanics
 
 5. **Live Counter Section** - "LIVE COUNTER $AGI"
-   - Real-time token metrics with auto-refresh every 5 minutes
+   - Real-time token metrics with **live updates every 30 seconds**
+   - **Countdown timer** showing "Next update in Xs"
+   - **Progress bar** visualizing time until next refresh
+   - **Pulse/glow animations** when data updates
    - 5 metric cards in 3-2 grid layout (3 top, 2 bottom)
    - **Total Supply**: Live circulating supply with full number display (e.g., 938,398,940)
-   - **Total Buyback**: Cumulative SOL spent on buybacks with decimals (e.g., 10.18 SOL)
-   - **Total Burnt**: Automatically calculated (Original Supply - Current Supply)
+   - **Total Buyback**: Cumulative SOL spent on buybacks with decimals (e.g., 10.18 SOL) - updates every 5 minutes
+   - **Total Burnt**: Automatically calculated (Original Supply - Current Supply) with full number display (e.g., 61,601,060)
    - **Price**: Live price with 24h % change from DexScreener
    - **Market Cap**: Live market cap from DexScreener
    - Custom futuristic SVG icons in cyan blue theme
    - Powered by Helius RPC and DexScreener APIs
+   - **Optimized API calls**: Fast data (price, supply) updates every 30s, slow data (buyback SOL) updates every 5 minutes
 
 6. **Parallax Characters Section**
    - Multiple AGI characters in different outfits
@@ -327,7 +342,13 @@ xl: 1280px   /* Desktops */
 
 ## 🎨 Recent Updates (v1.0)
 
-**Major Changes:**
+**Latest Changes (Feb 2026):**
+- ✅ **PRODUCTION LAUNCH**: Configured Live Counter for SMOL CAT 2 token
+- ✅ **Token Address**: DHtrXDg2Ft5pamHTRxgwUHm9wNo6hMxf55BK97AZM5xS
+- ✅ **Wallet Address**: FgggJdPswcEKFvXUzyjgGwVLVYQXj6ZLP4WaA3CWLWbR
+- ✅ Updated TOKEN_CONFIG in constants.ts for production deployment
+
+**Major Changes (v1.0):**
 - ✅ Hero layout changed to two-line display: "AGENTPAD" + "$AGI"
 - ✅ All "AGI" references updated to "$AGI" for consistent branding
 - ✅ Subheadline changed to "OFFICIAL MASCOT"
@@ -364,44 +385,55 @@ All images converted from PNG to WebP using Sharp:
 ### Live Counter Integration
 - **Data Source**: Helius RPC API for blockchain data
 - **API Endpoint**: `https://mainnet.helius-rpc.com`
-- **Update Frequency**: Auto-refresh every 5 minutes
+- **Update Frequency**:
+  - **Fast updates (30 seconds)**: Price, supply, market cap (frequently changing data)
+  - **Slow updates (5 minutes)**: Buyback SOL (rarely changes, expensive API call)
+- **Live Features**:
+  - **Countdown Timer**: Shows seconds until next update (30s → 0s)
+  - **Progress Bar**: Visual indicator of time until refresh
+  - **Pulse Animation**: Cards glow cyan blue when data updates
+  - **Smart Optimization**: Splits expensive/cheap API calls for better performance
 - **Metrics Tracked**:
-  - Total Supply: `getTokenSupply` RPC call (displays with full decimals)
-  - Buyback SOL: Transaction history analysis via Helius enhanced API (cumulative SOL spent, displays with 2-4 decimals)
-  - Burnt Tokens: Calculated (Original Supply - Current Supply, displays in compact format)
-  - Price & Market Cap: DexScreener API
+  - Total Supply: `getTokenSupply` RPC call (displays with full number format with commas, updates every 30s)
+  - Buyback SOL: Transaction history analysis via Helius enhanced API (cumulative SOL spent, displays with 2-4 decimals, updates every 5 minutes)
+  - Burnt Tokens: Calculated (Original Supply - Current Supply, displays with full number format with commas, updates every 30s)
+  - Price & Market Cap: DexScreener API (shows "N/A" if no trading pairs available, updates every 30s)
 - **Environment Variable**: `VITE_HELIUS_API_KEY` (required)
 - **Free Tier**: 100k requests/day, no credit card required
 - **No Authentication Required** for DexScreener API
 - **Formatting Functions**: `formatNumber()`, `formatSol()`, `formatCompact()`, `formatPrice()` in `src/utils/tokenUtils.ts`
+- **Fallback Handling**: Works even when price data is unavailable (displays supply/burn data, shows "N/A" for price/market cap)
+- **New Components**: `AnimatedNumber.tsx`, `RefreshProgressBar.tsx` for enhanced UX
 
-## 🔄 Switching from Test Token to Production
+## 🔄 Token Configuration Management
 
-**Current Status**: The site is configured with a test token for development.
+**Current Status**: ✅ PRODUCTION MODE - Tracking SMOL CAT 2
 
-### When Ready to Launch with Real $AGI Token
+The site is currently configured to track the **SMOL CAT 2** token with the following settings:
 
-Follow these steps to switch to your production token:
+### Current Production Configuration
 
-#### 1. Update Token Configuration
-
-Edit `src/utils/constants.ts` and update the `TOKEN_CONFIG` object:
+Edit `src/utils/constants.ts` - the `TOKEN_CONFIG` object is currently set to:
 
 ```typescript
 export const TOKEN_CONFIG = {
-  // ⚠️ CHANGE THIS: Replace with your real $AGI token contract address
-  address: 'YOUR_REAL_AGI_TOKEN_ADDRESS_HERE',
+  // SMOL CAT 2 token contract address on Solana
+  address: 'DHtrXDg2Ft5pamHTRxgwUHm9wNo6hMxf55BK97AZM5xS',
 
-  symbol: '$AGI',
-  decimals: 9, // Verify this matches your token contract
+  symbol: 'SMOL CAT 2',
+  decimals: 6, // Verified from on-chain data (NOT 9!)
 
-  // ⚠️ CHANGE THIS: Replace with your production buyback/burn wallet
-  buybackBurnWallet: 'YOUR_PRODUCTION_WALLET_ADDRESS_HERE',
+  // Buyback & Burn wallet address
+  buybackBurnWallet: 'FgggJdPswcEKFvXUzyjgGwVLVYQXj6ZLP4WaA3CWLWbR',
 
-  // ⚠️ VERIFY THIS: Confirm this matches your token's initial supply
-  originalSupply: 1_000_000_000, // 1 billion tokens
+  // Original total supply: 1 billion tokens
+  originalSupply: 1_000_000_000,
 };
 ```
+
+### Switching to a Different Token
+
+If you need to track a different token in the future, update these values:
 
 #### 2. What Each Setting Does
 

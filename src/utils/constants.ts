@@ -31,7 +31,7 @@ export const TOKEN_CONFIG = {
   address: 'DHtrXDg2Ft5pamHTRxgwUHm9wNo6hMxf55BK97AZM5xS',
 
   symbol: 'SMOL CAT 2',
-  decimals: 9, // Standard SPL token decimals (verify from contract)
+  decimals: 6, // Verified from on-chain data (NOT 9!)
 
   // Buyback & Burn wallet address
   // This wallet holds SOL for buybacks and receives burnt SMOL CAT 2 tokens

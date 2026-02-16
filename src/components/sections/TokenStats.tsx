@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
+import { useRef, useEffect, useState } from 'react';
 import { useTokenStats } from '../../hooks/useTokenStats';
 import { formatNumber, formatPrice, formatPercentage, formatCompact, formatSol } from '../../utils/tokenUtils';
 import SectionTitle from '../ui/SectionTitle';
+import { RefreshProgressBar } from '../ui/RefreshProgressBar';
 
 // Custom Icon Components
 const PriceIcon = () => (
@@ -51,7 +53,21 @@ const BurnIcon = () => (
 );
 
 const TokenStats = () => {
-  const { stats, loading, error } = useTokenStats();
+  const { stats, loading, error, lastUpdated, secondsUntilNextUpdate } = useTokenStats();
+
+  // Track when data updates to trigger pulse animation
+  const prevLastUpdated = useRef(lastUpdated);
+  const [justUpdated, setJustUpdated] = useState(false);
+
+  useEffect(() => {
+    if (lastUpdated && lastUpdated !== prevLastUpdated.current && prevLastUpdated.current !== null) {
+      setJustUpdated(true);
+      const timeout = setTimeout(() => setJustUpdated(false), 1000);
+      prevLastUpdated.current = lastUpdated;
+      return () => clearTimeout(timeout);
+    }
+    prevLastUpdated.current = lastUpdated;
+  }, [lastUpdated]);
 
   const topCards = [
     {
@@ -71,7 +87,7 @@ const TokenStats = () => {
     {
       icon: <BurnIcon />,
       label: 'TOTAL BURNT',
-      value: stats ? formatCompact(stats.burnedAmount) : '--',
+      value: stats ? formatNumber(stats.burnedAmount) : '--',
       suffix: '$AGI',
       suffixColor: undefined,
     },
@@ -81,14 +97,14 @@ const TokenStats = () => {
     {
       icon: <PriceIcon />,
       label: 'PRICE',
-      value: stats ? `$${formatPrice(stats.price)}` : '--',
+      value: stats && stats.price > 0 ? `$${formatPrice(stats.price)}` : 'N/A',
       suffix: stats && stats.priceChange24h !== 0 ? formatPercentage(stats.priceChange24h) : '',
       suffixColor: stats && stats.priceChange24h >= 0 ? 'text-green-600' : 'text-red-600',
     },
     {
       icon: <MarketCapIcon />,
       label: 'MARKET CAP',
-      value: stats ? `$${formatCompact(stats.marketCap)}` : '--',
+      value: stats && stats.marketCap > 0 ? `$${formatCompact(stats.marketCap)}` : 'N/A',
       suffix: '',
       suffixColor: undefined,
     },
@@ -106,19 +122,26 @@ const TokenStats = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          Real-time token metrics powered by DexScreener. Auto-updates every 5 minutes.
+          Real-time token metrics powered by Helius RPC and DexScreener. Live updates every 30 seconds.
         </motion.p>
 
-        {/* Error Message */}
+        {/* Error/Warning Message */}
         {error && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             className="max-w-2xl mx-auto mb-8"
           >
-            <div className="card-solid p-6 bg-white border-2 border-red-300">
+            <div className={`card-solid p-6 bg-white border-2 ${
+              error.includes('Price data unavailable')
+                ? 'border-yellow-300'
+                : 'border-red-300'
+            }`}>
               <p className="text-center text-pudgy-navy/70">
-                ⚠️ Unable to fetch live data. Please try again later.
+                {error.includes('Price data unavailable')
+                  ? '💡 ' + error + ' - Supply and burn data are still available.'
+                  : '⚠️ ' + error
+                }
               </p>
             </div>
           </motion.div>
@@ -133,6 +156,13 @@ const TokenStats = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
+              animate={justUpdated ? {
+                boxShadow: [
+                  '0 0 0px rgba(64, 196, 255, 0)',
+                  '0 0 20px rgba(64, 196, 255, 0.6)',
+                  '0 0 0px rgba(64, 196, 255, 0)'
+                ]
+              } : {}}
             >
               <div className="card-solid h-full flex flex-col items-center justify-center p-8 bg-white relative text-center">
                 {/* Loading State */}
@@ -177,6 +207,13 @@ const TokenStats = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: (topCards.length + index) * 0.1, duration: 0.6 }}
+              animate={justUpdated ? {
+                boxShadow: [
+                  '0 0 0px rgba(64, 196, 255, 0)',
+                  '0 0 20px rgba(64, 196, 255, 0.6)',
+                  '0 0 0px rgba(64, 196, 255, 0)'
+                ]
+              } : {}}
             >
               <div className="card-solid h-full flex flex-col items-center justify-center p-8 bg-white relative text-center">
                 {/* Loading State */}
@@ -212,7 +249,7 @@ const TokenStats = () => {
           ))}
         </div>
 
-        {/* Footer Note */}
+        {/* Footer Note with Countdown Timer */}
         {stats && !loading && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -221,9 +258,13 @@ const TokenStats = () => {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="mt-12 text-center"
           >
-            <p className="text-pudgy-navy/60 text-sm md:text-base">
-              ✨ Data refreshes automatically every 5 minutes
+            <p className="text-pudgy-navy/60 text-sm md:text-base mb-2">
+              ✨ Data updates every 30 seconds • Next update in <span className="font-bold text-cute-blue">{secondsUntilNextUpdate}s</span>
             </p>
+            <RefreshProgressBar
+              secondsUntilNext={secondsUntilNextUpdate}
+              totalSeconds={30}
+            />
           </motion.div>
         )}
       </div>
